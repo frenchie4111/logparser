@@ -1,0 +1,9 @@
+{
+  "name": "logparser",
+  "version": "0.0.0",
+  "description": "",
+  "dependencies": {
+    "bootstrap-customize": "~3.3.4"
+  },
+  "devDependencies": {}
+}
