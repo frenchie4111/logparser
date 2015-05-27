@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "flux": "^2.0.3",
+    "object-assign": "^2.0.0",
     "react": "^0.13.3",
     "react-proxy-plus-loader": "0.0.2",
     "react-router": "^0.13.3"
@@ -52,4 +53,3 @@
     "vinyl-named": "^1.1.0"
   }
 }
-
