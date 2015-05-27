@@ -14,13 +14,13 @@
       return {
         style: {},
         text: '',
-        regex: []
+        regexesText: ''
       };
     },
     propTypes: {
       style: React.PropTypes.object,
       text: React.PropTypes.string,
-      regex: React.PropTypes.array
+      regexesText: React.PropTypes.string
     },
     _style: {
       textarea: {
@@ -44,7 +44,7 @@
           <textarea
             style={ this._style.regex }
             onChange={ function( event ) { FormActionCreator.regexInputChanged( event.target.value ); } }
-            value={ this.props.regex.map( ( regex ) => regex.toString().slice( 1, -1 ) ).join( '\n' ) }>
+            value={ this.props.regexesText }>
           </textarea>
         </div>
       );
