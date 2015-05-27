@@ -15,7 +15,7 @@
   var FormStore = assign( {}, EventEmitter.prototype, {
     CHANGE_EVENT: 'change',
     _text: '',
-    _regexes: [ /Test/g ],
+    _regexes: [ /Test/, /a/g ],
 
     emitChange: function() {
       this.emit( this.CHANGE_EVENT );
@@ -33,13 +33,37 @@
       return this._text;
     },
 
-    getMatches: function() {
-      var text = this.getText();
+    getRegexes: function() {
+      return this._regexes;
+    },
 
-      return this._regexes
-        .map( function( regex ) {
-          return text.match( regex );
-        } );
+    getMatches: function() {
+      var _this = this;
+      var text = _this.getText();
+
+      console.log( 'start' );
+
+      return text
+        .split( '\n' )
+        .map( ( line, lineNum ) => {
+          var responseObject = _this.getRegexes()
+            .reduce( ( full, regex ) => {
+              var match = line.match( regex );
+
+              if( match )
+                full.matches.push( match );
+
+              return full;
+            }, {
+              line,
+              lineNum,
+              matches: []
+            } );
+
+          if( responseObject.matches.length > 0 )
+            return responseObject;
+        } )
+        .filter( ( item ) => item ); // Remove undefined / null values
     },
 
     _setText: function( newText ) {
