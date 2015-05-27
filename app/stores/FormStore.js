@@ -38,7 +38,13 @@
       return this._regexesText
         .split( '\n' )
         .filter( ( line ) => line !== '' )
-        .map( ( regexText ) => new RegExp( regexText ) );
+        .map( ( regexText ) => {
+          try {
+            return new RegExp( regexText );
+          } catch( err ) {
+            console.log( err );
+          }
+        } );
     },
 
     getRegexesText: function() {
