@@ -39,7 +39,8 @@
         <div>
           <TextInput
             style={ this._style.left }
-            text={ FormStore.getText() } />
+            text={ FormStore.getText() }
+            regex={ FormStore.getRegexes() } />
           <TextOutput
             style={ this._style.right }
             matches={ FormStore.getMatches() } />
