@@ -15,6 +15,13 @@
         type: Constants.TEXT_CHANGED,
         text: newText
       } );
+    },
+
+    regexInputChanged: function( newRegexText ) {
+      AppDispatcher.dispatch( {
+        type: Constants.REGEX_CHANGED,
+        regexText: newRegexText
+      } );
     }
   };
 })();

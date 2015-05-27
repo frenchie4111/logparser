@@ -15,7 +15,7 @@
   var FormStore = assign( {}, EventEmitter.prototype, {
     CHANGE_EVENT: 'change',
     _text: '',
-    _regexes: [ /Test/, /a/g ],
+    _regexes: [ new RegExp( 'Test' ) ],
 
     emitChange: function() {
       this.emit( this.CHANGE_EVENT );
@@ -69,6 +69,15 @@
     _setText: function( newText ) {
       this._text = newText;
       this.emitChange();
+    },
+
+    _setRegex: function( newRegexText ) {
+      console.log( this._regexes);
+      this._regexes = newRegexText
+        .split( '\n' )
+        .map( ( regexText ) => new RegExp( regexText ) );
+
+      this.emitChange();
     }
   } );
 
@@ -76,6 +85,9 @@
     switch( action.type ) {
       case Constants.TEXT_CHANGED:
         FormStore._setText( action.text );
+        break;
+      case Constants.REGEX_CHANGED:
+        FormStore._setRegex( action.regexText );
         break;
     }
   } );

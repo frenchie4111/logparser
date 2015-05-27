@@ -13,17 +13,23 @@
     getDefaultProps: function() {
       return {
         style: {},
-        text: ''
+        text: '',
+        regex: []
       };
     },
     propTypes: {
       style: React.PropTypes.object,
-      text: React.PropTypes.string
+      text: React.PropTypes.string,
+      regex: React.PropTypes.array
     },
     _style: {
       textarea: {
         width: '100%',
-        height: '100%'
+        height: '80%'
+      },
+      regex: {
+        width: '100%',
+        height: '20%'
       }
     },
     render: function() {
@@ -34,6 +40,11 @@
             style={ this._style.textarea }
             onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
             value={ this.props.text }>
+          </textarea>
+          <textarea
+            style={ this._style.regex }
+            onChange={ function( event ) { FormActionCreator.regexInputChanged( event.target.value ); } }
+            value={ this.props.regex.map( ( regex ) => regex.toString().slice( 1, -1 ) ).join( '\n' ) }>
           </textarea>
         </div>
       );
