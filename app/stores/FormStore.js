@@ -49,8 +49,6 @@
       var _this = this;
       var text = _this.getText();
 
-      console.log( 'start' );
-
       return text
         .split( '\n' )
         .map( ( line, lineNum ) => {
