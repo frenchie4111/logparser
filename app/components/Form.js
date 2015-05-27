@@ -40,7 +40,7 @@
           <TextInput
             style={ this._style.left }
             text={ FormStore.getText() }
-            regex={ FormStore.getRegexes() } />
+            regexesText={ FormStore.getRegexesText() } />
           <TextOutput
             style={ this._style.right }
             matches={ FormStore.getMatches() } />
