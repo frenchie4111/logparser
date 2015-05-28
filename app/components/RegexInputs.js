@@ -26,7 +26,9 @@
         <RegexInput
           key={ i }
           regexText={ regex.regexText }
+          onRegexTextChange={ ( newText ) => FormActionCreator.regexTextChanged( newText, i ) }
           outputText={ regex.outputText }
+          onOutputTextChange={ ( newText ) => FormActionCreator.outputTextChanged( newText, i ) }
           error={ regex.error } />
       );
     },

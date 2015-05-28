@@ -72,6 +72,7 @@
     },
 
     _onRegexTextChange: function( newRegexText, key ) {
+      console.log( key );
       this._regexes[ key ].setRegexText( newRegexText );
       this.emitChange();
     },
