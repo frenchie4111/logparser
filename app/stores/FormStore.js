@@ -38,32 +38,36 @@
       return this._regexes;
     },
 
+    _getMatchForRegex: function( line, regex ) {
+      var regexp = regex.regex;
+      return line.match( regexp );
+    },
+
+    _getMatchesForLine: function( line ) {
+      return this.getRegexes()
+        .reduce( ( full, regex ) => {
+          full.push( this._getMatchForRegex( line, regex ) );
+          return full;
+        }, [] )
+        .filter( ( item ) => item ); // Ignore it when there was no matches
+    },
+
     getMatches: function() {
-      var _this = this;
-      var text = _this.getText();
+      var splitText = this.getText().split( '\n' );
 
-      return text
-        .split( '\n' )
+      return splitText
         .map( ( line, lineNum ) => {
-          var responseObject = _this.getRegexes()
-            .map( ( regexObj ) => regexObj.regex )
-            .reduce( ( full, regex ) => {
-              var match = line.match( regex );
+          var matches = this._getMatchesForLine( line );
 
-              if( match )
-                full.matches.push( match );
-
-              return full;
-            }, {
+          if( matches && matches.length > 0 ) {
+            return {
               line,
               lineNum,
-              matches: []
-            } );
-
-          if( responseObject.matches.length > 0 )
-            return responseObject;
+              matches: matches
+            };
+          }
         } )
-        .filter( ( item ) => item ); // Remove undefined / null values
+        .filter( ( item ) => item );
     },
 
     _setText: function( newText ) {
@@ -72,7 +76,6 @@
     },
 
     _onRegexTextChange: function( newRegexText, key ) {
-      console.log( key );
       this._regexes[ key ].setRegexText( newRegexText );
       this.emitChange();
     },

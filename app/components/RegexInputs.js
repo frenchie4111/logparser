@@ -33,7 +33,6 @@
       );
     },
     render: function() {
-      console.log( this.props.regexes );
       return (
         <div
           style={ this.props.style }>
