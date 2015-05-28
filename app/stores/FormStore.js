@@ -96,7 +96,7 @@
         FormStore._onRegexTextChange( action.regexText, action.key );
         break;
       case Constants.REGEX_OUTPUT_CHANGED:
-        FormStore._onRegexTextChange( action.regexText, action.key );
+        FormStore._onRegexOutputChange( action.outputText, action.key );
         break;
       case Constants.ADD_REGEX:
         FormStore._addRegex();

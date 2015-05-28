@@ -6,7 +6,8 @@
  */
 
 (function() {
-  var React = require( 'react' );
+  var React = require( 'react' ),
+    FormActionCreator = require( '../actions/FormActionCreator' );
 
   module.exports = React.createClass( {
     getDefaultProps: function() {
@@ -28,8 +29,14 @@
     render: function() {
       return (
         <div style={ this.props.style } key={ this.props.key }>
-          <input type='text' value={ this.props.regexText } />
-          <input type='text' value={ this.props.outputText } />
+          <input
+            type='text'
+            value={ this.props.regexText }
+            onChange={ ( event ) => FormActionCreator.regexTextChanged( event.target.value, +this.props.key ) }/>
+          <input
+            type='text'
+            value={ this.props.outputText }
+            onChange={ ( event ) => FormActionCreator.outputTextChanged( event.target.value, +this.props.key ) } />
         </div>
       );
     }
