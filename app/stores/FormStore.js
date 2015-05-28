@@ -10,13 +10,13 @@
     assign = require( 'object-assign' );
 
   var AppDispatcher = require( '../dispatcher/AppDispatcher' ),
-    Constants = require( '../constants/FormConstants' );
+    Constants = require( '../constants/FormConstants' ),
+    Regex = require( '../data_schemas/Regex' );
 
   var FormStore = assign( {}, EventEmitter.prototype, {
     CHANGE_EVENT: 'change',
     _text: '',
     _regexes: [],
-    _regexesText: '',
 
     emitChange: function() {
       this.emit( this.CHANGE_EVENT );
@@ -35,20 +35,7 @@
     },
 
     getRegexes: function() {
-      return this._regexesText
-        .split( '\n' )
-        .filter( ( line ) => line !== '' )
-        .map( ( regexText ) => {
-          try {
-            return new RegExp( regexText );
-          } catch( err ) {
-            console.log( err );
-          }
-        } );
-    },
-
-    getRegexesText: function() {
-      return this._regexesText;
+      return this._regexes;
     },
 
     getMatches: function() {
@@ -59,6 +46,7 @@
         .split( '\n' )
         .map( ( line, lineNum ) => {
           var responseObject = _this.getRegexes()
+            .map( ( regexObj ) => regexObj.regex )
             .reduce( ( full, regex ) => {
               var match = line.match( regex );
 
@@ -83,8 +71,18 @@
       this.emitChange();
     },
 
-    _setRegex: function( newRegexText ) {
-      this._regexesText = newRegexText;
+    _onRegexTextChange: function( newRegexText, key ) {
+      this._regexes[ key ].setRegexText( newRegexText );
+      this.emitChange();
+    },
+
+    _onRegexOutputChange: function( newOutputText, key ) {
+      this._regexes[ key ].setOutputText( newOutputText );
+      this.emitChange();
+    },
+
+    _addRegex: function() {
+      this._regexes.push( new Regex() );
       this.emitChange();
     }
   } );
@@ -94,8 +92,14 @@
       case Constants.TEXT_CHANGED:
         FormStore._setText( action.text );
         break;
-      case Constants.REGEX_CHANGED:
-        FormStore._setRegex( action.regexText );
+      case Constants.REGEX_TEXT_CHANGED:
+        FormStore._onRegexTextChange( action.regexText, action.key );
+        break;
+      case Constants.REGEX_OUTPUT_CHANGED:
+        FormStore._onRegexTextChange( action.regexText, action.key );
+        break;
+      case Constants.ADD_REGEX:
+        FormStore._addRegex();
         break;
     }
   } );

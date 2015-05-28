@@ -17,10 +17,25 @@
       } );
     },
 
-    regexInputChanged: function( newRegexText ) {
+    regexTextChanged: function( regexText, key ) {
       AppDispatcher.dispatch( {
-        type: Constants.REGEX_CHANGED,
-        regexText: newRegexText
+        type: Constants.REGEX_TEXT_CHANGED,
+        regexText,
+        key
+      } );
+    },
+
+    outputTextChanged: function( outputText, key ) {
+      AppDispatcher.dispatch( {
+        type: Constants.REGEX_OUTPUT_CHANGED,
+        outputText,
+        key
+      } );
+    },
+
+    addRegex: function() {
+      AppDispatcher.dispatch( {
+        type: Constants.ADD_REGEX
       } );
     }
   };

@@ -7,20 +7,21 @@
 
 (function() {
   var React = require( 'react' ),
-    FormActionCreator = require( '../Actions/FormActionCreator' );
+    FormActionCreator = require( '../actions/FormActionCreator' ),
+    RegexInputs = require( './RegexInputs' );
 
   module.exports = React.createClass( {
     getDefaultProps: function() {
       return {
         style: {},
         text: '',
-        regexesText: ''
+        regexes: []
       };
     },
     propTypes: {
       style: React.PropTypes.object,
       text: React.PropTypes.string,
-      regexesText: React.PropTypes.string
+      regexes: React.PropTypes.array
     },
     _style: {
       textarea: {
@@ -41,11 +42,9 @@
             onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
             value={ this.props.text }>
           </textarea>
-          <textarea
+          <RegexInputs
             style={ this._style.regex }
-            onChange={ function( event ) { FormActionCreator.regexInputChanged( event.target.value ); } }
-            value={ this.props.regexesText }>
-          </textarea>
+            regexes={ this.props.regexes } />
         </div>
       );
     }
