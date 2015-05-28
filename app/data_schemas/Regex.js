@@ -16,7 +16,7 @@
       this.regexText = newText;
 
       try {
-        this.regex = new RegExp( newText );
+        this.regex = new RegExp( this.regexText );
         this.error = null;
       } catch( err ) {
         this.error = err;
