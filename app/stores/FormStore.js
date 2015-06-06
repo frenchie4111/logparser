@@ -44,6 +44,7 @@
         this.matches = [];
 
         this.addMatch = function( regexOutput ) {
+            if( !regexOutput ) return;
             this.matches.push( regexOutput );
         };
 
