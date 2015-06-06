@@ -108,13 +108,13 @@
         setAfterHash: function( hash ) {
             console.log( hash );
             hash = decodeURI( hash );
-            var hashArray = hash.match( /#\[(.*)\]/ );
+            var hashArray = hash.match( /#\[(.*)\]/ ); // Removed the parent [] from the code
 
             if( !hashArray[ 1 ] ) throw new Error( 'Invalid Hash' );
 
-            var regexRegex = /(\[([^,]*),([^\]]*)\]),?/g; // This regex finds [\d,\d],[\d,\d],[\d,\d] to parse the hash
+            var regexRegex = /(\[([^,]*),([^\]]*)\]),?/g; // This regex finds [.*,.*],? to parse the hash
             var hashArrayWithoutBrackets = hashArray[ 1 ]; // This is the hash without it's first level brackets
-            var item = null;
+            var item;
             console.log( regexRegex, hashArrayWithoutBrackets );
             while( ( item = regexRegex.exec( hashArrayWithoutBrackets ) ) !== null ) {
                 if( !( item.length === 4) ) throw new Error( 'Invalid Hash' );
