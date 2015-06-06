@@ -36,6 +36,19 @@
         this.match = function( line ) {
             return line.match( this.regex );
         };
+
+        this.output = function( regexResults ) {
+            var outputText = this.outputText;
+
+            regexResults
+                .slice( 1 )
+                .forEach( ( matched, i ) => {
+                    var replace = '$' + ( i + 1 );
+                    outputText = outputText.replace( replace, matched );
+                } );
+
+            return outputText;
+        };
     };
 
     var MatchedLine = function( line, lineNum ) {
@@ -55,7 +68,7 @@
         this.getOutput = function() {
             return this.matches
                 .map( function( match ) {
-                    return match[ 0 ].outputText;
+                    return match[ 0 ].output( match[ 1 ] );
                 } );
         };
     };
