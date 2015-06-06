@@ -34,6 +34,20 @@
         };
     };
 
+    var MatchedLine = function( line, lineNum ) {
+        this.line = line;
+        this.lineNum = lineNum;
+        this.matches = [];
+
+        this.addMatch = function( regexOutput ) {
+            this.matches.push( regexOutput );
+        };
+
+        this.hasMatches = function() {
+            return this.matches.length > 0;
+        };
+    };
+
     var FormStore = assign( {}, EventEmitter.prototype, {
         CHANGE_EVENT: 'change',
         _text: '',
