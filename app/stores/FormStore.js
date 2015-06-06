@@ -78,13 +78,12 @@
             return this._regexes;
         },
 
-        _getMatchesForLine: function( line ) {
+        _getMatchesForLine: function( line, lineNum ) {
             return this.getRegexes()
-                .reduce( ( full, regex ) => {
-                    full.push( regex.match( line ) );
-                    return full;
-                }, [] )
-                .filter( ( item ) => item ); // Ignore it when there was no matches
+                .reduce( ( matchedLine, regex ) => {
+                    matchedLine.addMatch( regex.match( line ) );
+                    return matchedLine;
+                }, new MatchedLine( line, lineNum ) );
         },
 
         getMatches: function() {
@@ -92,15 +91,9 @@
 
             return splitText
                 .map( ( line, lineNum ) => {
-                    var matches = this._getMatchesForLine( line );
+                    var matchedLine = this._getMatchesForLine( line, lineNum );
 
-                    if( matches && matches.length > 0 ) {
-                        return {
-                            line,
-                            lineNum,
-                            matches: matches
-                        };
-                    }
+                    if( matchedLine.hasMatches() ) return matchedLine;
                 } )
                 .filter( ( item ) => item );
         },
