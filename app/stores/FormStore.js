@@ -107,6 +107,7 @@
 
         setAfterHash: function( hash ) {
             console.log( hash );
+            hash = hash.replace( /%20/g, ' ' );
             var hashArray = hash.match( /#\[(.*)\]/ );
 
             if( !hashArray[ 1 ] ) throw new Error( 'Invalid Hash' );
