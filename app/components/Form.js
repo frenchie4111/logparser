@@ -30,6 +30,7 @@
             }
         },
         _onChange: function() {
+            document.location.hash = FormStore.getAfterHash();
             this.forceUpdate();
         },
         render: function() {

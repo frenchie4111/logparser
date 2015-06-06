@@ -98,6 +98,13 @@
             return this._regexes;
         },
 
+        getAfterHash: function() {
+            return '[' + this
+                .getRegexes()
+                .map( ( regex ) => '[' + regex.regexText + ',' + regex.outputText + ']' )
+                .join( ',' ) + ']';
+        },
+
         _getMatchesForLine: function( line, lineNum ) {
             return this.getRegexes()
                 .reduce( ( matchedLine, regex ) => {
