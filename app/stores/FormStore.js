@@ -53,7 +53,10 @@
         };
 
         this.getOutput = function() {
-            return 'MatchedLine Output';
+            return this.matches
+                .map( function( match ) {
+                    return match[ 0 ].outputText;
+                } );
         };
     };
 
@@ -106,7 +109,10 @@
             return this.getMatches()
                 .map( ( matchedLine ) => {
                     return matchedLine.getOutput();
-                } );
+                } )
+                .reduce( ( full, outputArray ) => {
+                    return full.concat( outputArray );
+                }, [] );
         },
 
         _setText: function( newText ) {
