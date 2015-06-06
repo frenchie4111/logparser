@@ -48,6 +48,7 @@
         },
         componentDidMount: function() {
             FormStore.addChangeListener( this._onChange );
+            if( document.location.hash ) FormStore.setAfterHash( document.location.hash );
         },
         componentDidUnmount: function() {
             FormStore.addChangeListener( this._onChange );

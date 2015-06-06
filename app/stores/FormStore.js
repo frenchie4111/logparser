@@ -105,6 +105,23 @@
                 .join( ',' ) + ']';
         },
 
+        setAfterHash: function( hash ) {
+            console.log( hash );
+            var hashArray = hash.match( /#\[(.*)\]/ );
+
+            if( !hashArray[ 1 ] ) throw new Error( 'Invalid Hash' );
+
+            var regexRegex = /(\[([^,]*),([^\]]*)\]),?/g; // This regex finds [\d,\d],[\d,\d],[\d,\d] to parse the hash
+            var hashArrayWithoutBrackets = hashArray[ 1 ]; // This is the hash without it's first level brackets
+            var item = null;
+            console.log( regexRegex, hashArrayWithoutBrackets );
+            while( ( item = regexRegex.exec( hashArrayWithoutBrackets ) ) !== null ) {
+                if( !( item.length === 4) ) throw new Error( 'Invalid Hash' );
+                var regex = new Regex( item[ 2 ], item[ 3 ] );
+                this._addRegex( regex );
+            }
+        },
+
         _getMatchesForLine: function( line, lineNum ) {
             return this.getRegexes()
                 .reduce( ( matchedLine, regex ) => {
@@ -150,8 +167,8 @@
             this.emitChange();
         },
 
-        _addRegex: function() {
-            this._regexes.push( new Regex() );
+        _addRegex: function( newRegex ) {
+            this._regexes.push( newRegex || new Regex() );
             this.emitChange();
         }
     } );
