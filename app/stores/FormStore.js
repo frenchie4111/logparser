@@ -43,13 +43,17 @@
         this.lineNum = lineNum;
         this.matches = [];
 
-        this.addMatch = function( regexOutput ) {
+        this.addMatch = function( regex, regexOutput ) {
             if( !regexOutput ) return;
-            this.matches.push( regexOutput );
+            this.matches.push( [ regex, regexOutput ] );
         };
 
         this.hasMatches = function() {
             return this.matches.length > 0;
+        };
+
+        this.getOutput = function() {
+            return 'MatchedLine Output';
         };
     };
 
@@ -81,7 +85,7 @@
         _getMatchesForLine: function( line, lineNum ) {
             return this.getRegexes()
                 .reduce( ( matchedLine, regex ) => {
-                    matchedLine.addMatch( regex.match( line ) );
+                    matchedLine.addMatch( regex, regex.match( line ) );
                     return matchedLine;
                 }, new MatchedLine( line, lineNum ) );
         },
@@ -99,7 +103,10 @@
         },
 
         getOutput: function() {
-            return [ 'test' ];
+            return this.getMatches()
+                .map( ( matchedLine ) => {
+                    return matchedLine.getOutput();
+                } );
         },
 
         _setText: function( newText ) {
