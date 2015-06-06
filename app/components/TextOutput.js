@@ -12,12 +12,12 @@
         getDefaultProps: function() {
             return {
                 style: {},
-                matches: []
+                output: []
             };
         },
         propTypes: {
             style: React.PropTypes.object,
-            matches: React.PropTypes.array
+            output: React.PropTypes.array
         },
         _style: {
             div: {
@@ -32,15 +32,12 @@
                     <div
                         style={ this._style.div }>
                         {
-                            this.props.matches
+                            this.props.output
                                 .map( function( line, i ) {
                                     return (
                                         <div key={ i }>
                                             <a className='lineNum'>
-                                                { line.lineNum }
-                                            </a>
-                                            <a className='line'>
-                                                { line.line }
+                                                { line }
                                             </a>
                                         </div>
                                     );

@@ -98,6 +98,10 @@
                 .filter( ( item ) => item );
         },
 
+        getOutput: function() {
+            return [ 'test' ];
+        },
+
         _setText: function( newText ) {
             this._text = newText;
             this.emitChange();

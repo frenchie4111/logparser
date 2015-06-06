@@ -41,7 +41,7 @@
                         regexes={ FormStore.getRegexes() }/>
                     <TextOutput
                         style={ this._style.right }
-                        matches={ FormStore.getMatches() }/>
+                        output={ FormStore.getOutput() }/>
                 </div>
             );
         },
