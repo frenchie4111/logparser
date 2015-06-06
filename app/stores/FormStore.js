@@ -10,8 +10,29 @@
     assign = require( 'object-assign' );
 
   var AppDispatcher = require( '../dispatcher/AppDispatcher' ),
-    Constants = require( '../constants/FormConstants' ),
-    Regex = require( '../data_schemas/Regex' );
+    Constants = require( '../constants/FormConstants' );
+
+  var Regex = function( regexText, outputText, error ) {
+    this.regexText = regexText || '';
+    this.regex = new RegExp( this.regexText ) || null;
+    this.outputText = outputText || '';
+    this.error = error || null;
+
+    this.setRegexText = function( newText ) {
+      this.regexText = newText;
+
+      try {
+        this.regex = new RegExp( this.regexText );
+        this.error = null;
+      } catch( err ) {
+        this.error = err;
+      }
+    };
+
+    this.setOutputText = function( newOutputText ) {
+      this.outputText = newOutputText;
+    };
+  };
 
   var FormStore = assign( {}, EventEmitter.prototype, {
     CHANGE_EVENT: 'change',
