@@ -32,6 +32,10 @@
         this.setOutputText = function( newOutputText ) {
             this.outputText = newOutputText;
         };
+
+        this.match = function( line ) {
+            return line.match( this.regex );
+        };
     };
 
     var MatchedLine = function( line, lineNum ) {
@@ -73,15 +77,10 @@
             return this._regexes;
         },
 
-        _getMatchForRegex: function( line, regex ) {
-            var regexp = regex.regex;
-            return line.match( regexp );
-        },
-
         _getMatchesForLine: function( line ) {
             return this.getRegexes()
                 .reduce( ( full, regex ) => {
-                    full.push( this._getMatchForRegex( line, regex ) );
+                    full.push( regex.match( line ) );
                     return full;
                 }, [] )
                 .filter( ( item ) => item ); // Ignore it when there was no matches
