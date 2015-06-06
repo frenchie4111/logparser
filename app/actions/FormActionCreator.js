@@ -6,37 +6,37 @@
  */
 
 (function() {
-  var AppDispatcher = require( '../dispatcher/AppDispatcher' ),
-    Constants = require( '../constants/FormConstants' );
+    var AppDispatcher = require( '../dispatcher/AppDispatcher' ),
+        Constants = require( '../constants/FormConstants' );
 
-  module.exports = {
-    textInputChanged: function( newText ) {
-      AppDispatcher.dispatch( {
-        type: Constants.TEXT_CHANGED,
-        text: newText
-      } );
-    },
+    module.exports = {
+        textInputChanged: function( newText ) {
+            AppDispatcher.dispatch( {
+                type: Constants.TEXT_CHANGED,
+                text: newText
+            } );
+        },
 
-    regexTextChanged: function( regexText, key ) {
-      AppDispatcher.dispatch( {
-        type: Constants.REGEX_TEXT_CHANGED,
-        regexText,
-        key
-      } );
-    },
+        regexTextChanged: function( regexText, key ) {
+            AppDispatcher.dispatch( {
+                type: Constants.REGEX_TEXT_CHANGED,
+                regexText,
+                key
+            } );
+        },
 
-    outputTextChanged: function( outputText, key ) {
-      AppDispatcher.dispatch( {
-        type: Constants.REGEX_OUTPUT_CHANGED,
-        outputText,
-        key
-      } );
-    },
+        outputTextChanged: function( outputText, key ) {
+            AppDispatcher.dispatch( {
+                type: Constants.REGEX_OUTPUT_CHANGED,
+                outputText,
+                key
+            } );
+        },
 
-    addRegex: function() {
-      AppDispatcher.dispatch( {
-        type: Constants.ADD_REGEX
-      } );
-    }
-  };
+        addRegex: function() {
+            AppDispatcher.dispatch( {
+                type: Constants.ADD_REGEX
+            } );
+        }
+    };
 })();
