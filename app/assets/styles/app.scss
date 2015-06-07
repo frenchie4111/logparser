@@ -75,6 +75,11 @@ h1 {
             @include flex( 1 );
 
             background-color: $light-gray;
+
+            color: $dark-font-color;
+            font-family: 'Inconsolata', 'Open Sans', sans-serif;
+
+            overflow: auto;
         }
     }
 }
