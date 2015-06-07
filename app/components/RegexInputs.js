@@ -13,12 +13,10 @@
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
-                style: {},
                 regexes: []
             };
         },
         propTypes: {
-            style: React.PropTypes.object,
             regexes: React.PropTypes.array
         },
         _renderRow: function( regex, i ) {
@@ -34,8 +32,7 @@
         },
         render: function() {
             return (
-                <div
-                    style={ this.props.style }>
+                <div>
                     <div>
                         {
                             this.props.regexes
@@ -43,7 +40,6 @@
                         }
                     </div>
                     <div
-                        style={ { width: 100, height: 30, backgroundColor: 'black' } }
                         onClick={ function() { FormActionCreator.addRegex(); } }>
                     </div>
                 </div>

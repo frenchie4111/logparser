@@ -11,7 +11,6 @@
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
-                style: {},
                 regexText: '',
                 onRegexTextChange: function() {
                 },
@@ -23,7 +22,6 @@
             };
         },
         propTypes: {
-            style: React.PropTypes.object,
             key: React.PropTypes.string,
             regexText: React.PropTypes.string,
             onRegexTextChange: React.PropTypes.function,
@@ -33,7 +31,7 @@
         },
         render: function() {
             return (
-                <div style={ this.props.style }>
+                <div>
                     <input
                         type='text'
                         value={ this.props.regexText }

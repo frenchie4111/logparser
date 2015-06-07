@@ -12,32 +12,18 @@
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
-                style: {},
                 text: '',
                 regexes: []
             };
         },
         propTypes: {
-            style: React.PropTypes.object,
             text: React.PropTypes.string,
             regexes: React.PropTypes.array
         },
-        _style: {
-            textarea: {
-                width: '100%',
-                height: '80%'
-            },
-            regex: {
-                width: '100%',
-                height: '20%'
-            }
-        },
         render: function() {
             return (
-                <div
-                    style={ this.props.style }>
+                <div>
           <textarea
-              style={ this._style.textarea }
               onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
               value={ this.props.text }>
           </textarea>

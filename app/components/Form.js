@@ -17,19 +17,6 @@
         getDefaultProps: function() {
             return {};
         },
-        _style: {
-            div: {},
-            left: {
-                width: '50%',
-                height: 500,
-                float: 'left'
-            },
-            right: {
-                width: '48%',
-                height: 500,
-                float: 'right'
-            }
-        },
         _onChange: function() {
             document.location.hash = FormStore.getAfterHash();
             this.forceUpdate();
@@ -39,10 +26,8 @@
                 <div>
                     <div>
                         <TextInput
-                            style={ this._style.left }
                             text={ FormStore.getText() } />
                         <TextOutput
-                            style={ this._style.right }
                             output={ FormStore.getOutput() }/>
                     </div>
                     <RegexInputs
