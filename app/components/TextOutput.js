@@ -11,26 +11,23 @@
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
-                style: {},
-                output: []
+                output: [],
+                id: ''
             };
         },
         propTypes: {
-            style: React.PropTypes.object,
-            output: React.PropTypes.array
-        },
-        _style: {
-            div: {
-                width: '100%',
-                height: '100%'
-            }
+            output: React.PropTypes.array,
+            id: React.PropTypes.string
         },
         render: function() {
             return (
                 <div
-                    style={ this.props.style }>
+                    id={ this.props.id }>
+                    <h1>
+                        Output
+                    </h1>
                     <div
-                        style={ this._style.div }>
+                        id="TextOutput_outputLines">
                         {
                             this.props.output
                                 .map( function( line, i ) {

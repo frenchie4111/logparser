@@ -7,44 +7,33 @@
 
 (function() {
     var React = require( 'react' ),
-        FormActionCreator = require( '../actions/FormActionCreator' ),
-        RegexInputs = require( './RegexInputs' );
+        FormActionCreator = require( '../actions/FormActionCreator' );
 
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
-                style: {},
                 text: '',
-                regexes: []
+                regexes: [],
+                id: ''
             };
         },
         propTypes: {
-            style: React.PropTypes.object,
             text: React.PropTypes.string,
-            regexes: React.PropTypes.array
-        },
-        _style: {
-            textarea: {
-                width: '100%',
-                height: '80%'
-            },
-            regex: {
-                width: '100%',
-                height: '20%'
-            }
+            regexes: React.PropTypes.array,
+            id: React.PropTypes.string
         },
         render: function() {
             return (
                 <div
-                    style={ this.props.style }>
-          <textarea
-              style={ this._style.textarea }
-              onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
-              value={ this.props.text }>
-          </textarea>
-                    <RegexInputs
-                        style={ this._style.regex }
-                        regexes={ this.props.regexes }/>
+                    id={ this.props.id }>
+                        <h1>
+                            Input
+                        </h1>
+                        <textarea
+                            placeholder="Enter Text Here..."
+                            onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
+                            value={ this.props.text }>
+                        </textarea>
                 </div>
             );
         }
