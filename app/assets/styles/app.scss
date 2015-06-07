@@ -2,6 +2,11 @@
 @import "flexbox";
 @import "colors";
 
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: $light-font-color;
+}
+
 // Make these full sized, so our flexbox can do it's magic
 body, html, #content {
     width: 100%;
