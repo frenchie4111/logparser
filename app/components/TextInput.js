@@ -26,6 +26,9 @@
             return (
                 <div
                     id={ this.props.id }>
+                        <h1>
+                            Input
+                        </h1>
                         <textarea
                             onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
                             value={ this.props.text }>
