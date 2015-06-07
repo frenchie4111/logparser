@@ -23,15 +23,20 @@
         },
         render: function() {
             return (
-                <div>
-                    <div>
+                <div
+                    id="form">
+                    <div
+                        id="text">
                         <TextInput
-                            text={ FormStore.getText() } />
+                            text={ FormStore.getText() }/>
                         <TextOutput
                             output={ FormStore.getOutput() }/>
                     </div>
-                    <RegexInputs
-                        regexes={ FormStore.getRegexes() }/>
+                    <div
+                        id="regex">
+                        <RegexInputs
+                            regexes={ FormStore.getRegexes() }/>
+                    </div>
                 </div>
             );
         },
