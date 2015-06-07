@@ -36,6 +36,10 @@ h1 {
     @include flexbox();
     @include flex-direction( row );
 
+    div {
+        padding: 10px;
+    }
+
     #input {
         @include flex( 1 );
 
@@ -44,7 +48,6 @@ h1 {
 
         background-color: $blue;
         box-sizing: border-box;
-        padding: 10px;
 
         textarea {
             @include flex( 1 );

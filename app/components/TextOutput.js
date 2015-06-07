@@ -23,18 +23,24 @@
             return (
                 <div
                     id={ this.props.id }>
-                    {
-                        this.props.output
-                            .map( function( line, i ) {
-                                return (
-                                    <div key={ i }>
-                                        <a className='lineNum'>
-                                            { line }
-                                        </a>
-                                    </div>
-                                );
-                            } )
-                    }
+                    <h1>
+                        Output
+                    </h1>
+                    <div
+                        id="TextOutput_outputLines">
+                        {
+                            this.props.output
+                                .map( function( line, i ) {
+                                    return (
+                                        <div key={ i }>
+                                            <a className='lineNum'>
+                                                { line }
+                                            </a>
+                                        </div>
+                                    );
+                                } )
+                        }
+                    </div>
                 </div>
             );
         }
