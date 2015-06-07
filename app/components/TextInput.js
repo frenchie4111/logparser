@@ -30,6 +30,7 @@
                             Input
                         </h1>
                         <textarea
+                            placeholder="Enter Text Here..."
                             onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
                             value={ this.props.text }>
                         </textarea>
