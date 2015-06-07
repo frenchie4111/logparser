@@ -26,10 +26,10 @@
             return (
                 <div
                     id={ this.props.id }>
-          <textarea
-              onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
-              value={ this.props.text }>
-          </textarea>
+                        <textarea
+                            onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
+                            value={ this.props.text }>
+                        </textarea>
                 </div>
             );
         }
