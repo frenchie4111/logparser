@@ -11,15 +11,18 @@
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
-                output: []
+                output: [],
+                id: ''
             };
         },
         propTypes: {
-            output: React.PropTypes.array
+            output: React.PropTypes.array,
+            id: React.PropTypes.string
         },
         render: function() {
             return (
-                <div>
+                <div
+                    id={ this.props.id }>
                     {
                         this.props.output
                             .map( function( line, i ) {

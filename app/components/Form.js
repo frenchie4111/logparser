@@ -28,8 +28,10 @@
                     <div
                         id="text">
                         <TextInput
+                            id="input"
                             text={ FormStore.getText() }/>
                         <TextOutput
+                            id="output"
                             output={ FormStore.getOutput() }/>
                     </div>
                     <div

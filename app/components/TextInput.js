@@ -13,16 +13,19 @@
         getDefaultProps: function() {
             return {
                 text: '',
-                regexes: []
+                regexes: [],
+                id: ''
             };
         },
         propTypes: {
             text: React.PropTypes.string,
-            regexes: React.PropTypes.array
+            regexes: React.PropTypes.array,
+            id: React.PropTypes.string
         },
         render: function() {
             return (
-                <div>
+                <div
+                    id={ this.props.id }>
           <textarea
               onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
               value={ this.props.text }>
