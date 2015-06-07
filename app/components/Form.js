@@ -8,6 +8,7 @@
 (function() {
     var React = require( 'react' ),
         TextInput = require( './TextInput' ),
+        RegexInputs = require( './RegexInputs' ),
         TextOutput = require( './TextOutput' );
 
     var FormStore = require( '../stores/FormStore' );
@@ -36,13 +37,16 @@
         render: function() {
             return (
                 <div>
-                    <TextInput
-                        style={ this._style.left }
-                        text={ FormStore.getText() }
+                    <div>
+                        <TextInput
+                            style={ this._style.left }
+                            text={ FormStore.getText() } />
+                        <TextOutput
+                            style={ this._style.right }
+                            output={ FormStore.getOutput() }/>
+                    </div>
+                    <RegexInputs
                         regexes={ FormStore.getRegexes() }/>
-                    <TextOutput
-                        style={ this._style.right }
-                        output={ FormStore.getOutput() }/>
                 </div>
             );
         },

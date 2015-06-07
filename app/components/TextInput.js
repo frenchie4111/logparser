@@ -7,8 +7,7 @@
 
 (function() {
     var React = require( 'react' ),
-        FormActionCreator = require( '../actions/FormActionCreator' ),
-        RegexInputs = require( './RegexInputs' );
+        FormActionCreator = require( '../actions/FormActionCreator' );
 
     module.exports = React.createClass( {
         getDefaultProps: function() {
@@ -42,9 +41,6 @@
               onChange={ function( event ) { FormActionCreator.textInputChanged( event.target.value ); } }
               value={ this.props.text }>
           </textarea>
-                    <RegexInputs
-                        style={ this._style.regex }
-                        regexes={ this.props.regexes }/>
                 </div>
             );
         }
