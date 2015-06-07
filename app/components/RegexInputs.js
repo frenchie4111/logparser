@@ -24,9 +24,9 @@
                 <RegexInput
                     key={ i }
                     regexText={ regex.regexText }
-                    onRegexTextChange={ ( newText ) => FormActionCreator.regexTextChanged( newText, i ) }
+                    onRegexTextChange={ function( newText ) { FormActionCreator.regexTextChanged( newText, i ); } }
                     outputText={ regex.outputText }
-                    onOutputTextChange={ ( newText ) => FormActionCreator.outputTextChanged( newText, i ) }
+                    onOutputTextChange={ function( newText ) { FormActionCreator.outputTextChanged( newText, i ); } }
                     error={ regex.error }/>
             );
         },
