@@ -24,18 +24,18 @@
         render: function() {
             return (
                 <div
-                    id="form">
+                    id="Form_container">
                     <div
-                        id="text">
+                        id="Form_text">
                         <TextInput
-                            id="input"
+                            id="Form_input"
                             text={ FormStore.getText() }/>
                         <TextOutput
-                            id="output"
+                            id="Form_output"
                             output={ FormStore.getOutput() }/>
                     </div>
                     <div
-                        id="regex">
+                        id="Form_regex">
                         <RegexInputs
                             regexes={ FormStore.getRegexes() }/>
                     </div>

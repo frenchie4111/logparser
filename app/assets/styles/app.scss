@@ -14,7 +14,7 @@ body, html, #content {
     height: 100%;
 }
 
-#form {
+#Form_container {
     width: 100%;
     height: 100%;
 
@@ -26,7 +26,7 @@ h1 {
     font-size: 24px;
 }
 
-#text {
+#Form_text {
     h1 {
         padding: 0 0 10px 2px;
     }
@@ -40,7 +40,7 @@ h1 {
         padding: 10px;
     }
 
-    #input {
+    #Form_input {
         @include flex( 1 );
 
         @include flexbox();
@@ -61,14 +61,14 @@ h1 {
         }
     }
 
-    #output {
+    #Form_output {
         @include flex( 1 );
 
         background-color: $green;
     }
 }
 
-#regex {
+#Form_regex {
     height: 40px;
 
     background-color: $blue-green;
