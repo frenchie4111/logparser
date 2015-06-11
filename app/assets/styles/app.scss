@@ -102,12 +102,16 @@ h1 {
             #RegexMenu_header {
                 // Make this flex: 1 so it pushes the button to the far side
                 @include flex( 1 );
+
+                padding-left: 10px;
             }
 
             #RegexMenu_expandButton {
                 width: 30px;
                 height: 30px;
                 background-color: red;
+
+                margin-right: 10px;
             }
         }
 
