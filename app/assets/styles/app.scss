@@ -112,6 +112,7 @@ h1 {
             @include flex-direction( row );
             @include align-items( center );
 
+            // Default display none, .expanded adds better display
             display: none;
 
             #RegexMenu_regexInputs {
