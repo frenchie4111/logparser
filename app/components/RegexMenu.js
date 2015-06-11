@@ -44,6 +44,7 @@
                         <div
                             onClick={ this._onExpandButtonClick }
                             id='RegexMenu_expandButton'>
+                            Expand / Collapse
                         </div>
                     </div>
                     <div

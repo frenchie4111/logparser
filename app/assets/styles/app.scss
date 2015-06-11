@@ -107,9 +107,8 @@ h1 {
             }
 
             #RegexMenu_expandButton {
-                width: 30px;
-                height: 30px;
-                background-color: red;
+                text-decoration: underline;
+                cursor: pointer;
 
                 margin-right: 10px;
             }
