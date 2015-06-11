@@ -11,6 +11,7 @@
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
+                className: '',
                 regexText: '',
                 onRegexTextChange: function() {
                 },
@@ -22,6 +23,7 @@
             };
         },
         propTypes: {
+            className: React.PropTypes.string,
             key: React.PropTypes.string,
             regexText: React.PropTypes.string,
             onRegexTextChange: React.PropTypes.function,
@@ -31,14 +33,17 @@
         },
         render: function() {
             return (
-                <div>
+                <div
+                    className={ this.props.className }>
                     <input
                         type='text'
                         value={ this.props.regexText }
+                        className='RegexInput_regexText'
                         onChange={ ( event ) => this.props.onRegexTextChange( event.target.value ) }/>
                     <input
                         type='text'
                         value={ this.props.outputText }
+                        className='RegexInput_outputText'
                         onChange={ ( event ) => this.props.onOutputTextChange( event.target.value ) }/>
                 </div>
             );
