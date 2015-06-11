@@ -25,6 +25,7 @@
                 <div
                     id={ this.props.id }>
                     <RegexInputs
+                        id='RegexMenu_regexInputs'
                         regexes={ this.props.regexes }/>
                 </div>
             );

@@ -37,6 +37,7 @@
                     <div
                         id="Form_regex">
                         <RegexMenu
+                            id="Form_regexMenu"
                             regexes={ FormStore.getRegexes() }/>
                     </div>
                 </div>
