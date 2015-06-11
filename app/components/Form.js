@@ -8,7 +8,7 @@
 (function() {
     var React = require( 'react' ),
         TextInput = require( './TextInput' ),
-        RegexInputs = require( './RegexInputs' ),
+        RegexMenu = require( './RegexMenu' ),
         TextOutput = require( './TextOutput' );
 
     var FormStore = require( '../stores/FormStore' );
@@ -36,7 +36,7 @@
                     </div>
                     <div
                         id="Form_regex">
-                        <RegexInputs
+                        <RegexMenu
                             regexes={ FormStore.getRegexes() }/>
                     </div>
                 </div>
