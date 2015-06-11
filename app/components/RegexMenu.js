@@ -34,9 +34,12 @@
                             id='RegexMenu_expandButton'>
                         </div>
                     </div>
-                    <RegexInputs
-                        id='RegexMenu_regexInputs'
-                        regexes={ this.props.regexes }/>
+                    <div
+                        id='RegexMenu_content'>
+                        <RegexInputs
+                            id='RegexMenu_regexInputs'
+                            regexes={ this.props.regexes }/>
+                    </div>
                 </div>
             );
         }
