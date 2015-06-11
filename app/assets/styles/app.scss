@@ -110,5 +110,13 @@ h1 {
         #RegexMenu_content {
             display: none;
         }
+
+        &.expanded {
+            height: 150px;
+
+            #RegexMenu_content {
+                display: initial;
+            }
+        }
     }
 }

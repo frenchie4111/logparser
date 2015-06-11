@@ -23,7 +23,8 @@
         render: function() {
             return (
                 <div
-                    id={ this.props.id }>
+                    id={ this.props.id }
+                    className='expanded'>
                     <div
                         id='RegexMenu_menuBar'>
                         <h1
