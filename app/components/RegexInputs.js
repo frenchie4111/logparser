@@ -13,10 +13,12 @@
     module.exports = React.createClass( {
         getDefaultProps: function() {
             return {
+                id: '',
                 regexes: []
             };
         },
         propTypes: {
+            id: React.PropTypes.string,
             regexes: React.PropTypes.array
         },
         _renderRow: function( regex, i ) {
@@ -32,7 +34,8 @@
         },
         render: function() {
             return (
-                <div>
+                <div
+                    id={ this.props.id }>
                     <div>
                         {
                             this.props.regexes
