@@ -24,6 +24,15 @@
             return (
                 <div
                     id={ this.props.id }>
+                    <div
+                        id='RegexMenu_menuBar'>
+                        <h1>
+                            Regex
+                        </h1>
+                        <div
+                            id='RegexMenu_expandButton'>
+                        </div>
+                    </div>
                     <RegexInputs
                         id='RegexMenu_regexInputs'
                         regexes={ this.props.regexes }/>
