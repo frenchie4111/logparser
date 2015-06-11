@@ -108,14 +108,30 @@ h1 {
         }
 
         #RegexMenu_content {
+            @include flexbox();
+            @include flex-direction( row );
+            @include align-items( center );
+
             display: none;
+
+            #RegexMenu_regexInputs {
+                @include flex( 1 );
+
+                background-color: green;
+            }
+
+            #RegexMenu_cheatsheet {
+                @include flex( 1 );
+
+                background-color: blue;
+            }
         }
 
         &.expanded {
             height: 150px;
 
             #RegexMenu_content {
-                display: initial;
+                @include flexbox();
             }
         }
     }

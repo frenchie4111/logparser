@@ -51,6 +51,10 @@
                         <RegexInputs
                             id='RegexMenu_regexInputs'
                             regexes={ this.props.regexes }/>
+                        <div
+                            id='RegexMenu_cheatsheet'>
+                            Text
+                        </div>
                     </div>
                 </div>
             );
