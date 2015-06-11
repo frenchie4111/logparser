@@ -24,6 +24,7 @@
         _renderRow: function( regex, i ) {
             return (
                 <RegexInput
+                    className='RegexInputs_row'
                     key={ i }
                     regexText={ regex.regexText }
                     onRegexTextChange={ function( newText ) { FormActionCreator.regexTextChanged( newText, i ); } }
@@ -36,13 +37,15 @@
             return (
                 <div
                     id={ this.props.id }>
-                    <div>
+                    <div
+                        id='RegexInputs_rowContainer'>
                         {
                             this.props.regexes
                                 .map( this._renderRow )
                         }
                     </div>
                     <div
+                        id='RegexInputs_addButton'
                         onClick={ function() { FormActionCreator.addRegex(); } }>
                     </div>
                 </div>
