@@ -47,6 +47,7 @@
                     <div
                         id='RegexInputs_addButton'
                         onClick={ function() { FormActionCreator.addRegex(); } }>
+                        Add Another Regex
                     </div>
                 </div>
             );

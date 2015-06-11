@@ -142,6 +142,16 @@ h1 {
                         }
                     }
                 }
+
+                #RegexInputs_addButton {
+                    width: 100%;
+                    height: 40px;
+                    background-color: $green;
+
+                    @include flexbox();
+                    @include justify-content( center );
+                    @include align-items( center );
+                }
             }
 
             #RegexMenu_cheatsheet {
