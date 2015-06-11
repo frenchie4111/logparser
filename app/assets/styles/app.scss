@@ -1,4 +1,5 @@
 @import "reset";
+@import "form_reset";
 @import "flexbox";
 @import "colors";
 
@@ -88,6 +89,9 @@ h1 {
     background-color: $blue-green;
 
     #Form_regexMenu {
+        @include flexbox();
+        @include flex-direction( column );
+
         #RegexMenu_menuBar {
             height: 40px;
 
@@ -108,6 +112,7 @@ h1 {
         }
 
         #RegexMenu_content {
+            @include flex( 1 );
             @include flexbox();
             @include flex-direction( row );
 
@@ -119,7 +124,24 @@ h1 {
 
                 overflow-y: auto;
 
-                background-color: green;
+                background-color: $light-gray;
+
+                .RegexInputs_row {
+                    @include flexbox();
+                    width: 100%;
+                    height: 40px;
+
+                    border-bottom: 1px solid #CDCDCD;
+
+                    input[type=text] {
+                        @include flex( 1 );
+                        padding: 10px;
+
+                        &:first-child {
+                            border-right: 1px solid $border-color;
+                        }
+                    }
+                }
             }
 
             #RegexMenu_cheatsheet {
