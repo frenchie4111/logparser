@@ -117,7 +117,6 @@ h1 {
             #RegexMenu_regexInputs {
                 @include flex( 1 );
 
-                max-height: 110px;
                 overflow-y: auto;
 
                 background-color: green;
@@ -125,9 +124,10 @@ h1 {
 
             #RegexMenu_cheatsheet {
                 @include flex( 1 );
-
-                background-color: blue;
             }
+
+            height: 100%;
+            background-color: $blue;
         }
 
         &.expanded {
