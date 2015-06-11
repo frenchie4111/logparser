@@ -16,15 +16,25 @@
                 id: ''
             };
         },
+        getInitialState: function() {
+            return {
+                expanded: true
+            };
+        },
         propTypes: {
             regexes: React.PropTypes.array,
             id: React.PropTypes.string
+        },
+        _onExpandButtonClick: function() {
+            this.setState( {
+                expanded: !this.state.expanded
+            } );
         },
         render: function() {
             return (
                 <div
                     id={ this.props.id }
-                    className='expanded'>
+                    className={ ( this.state.expanded )?'expanded':'' }>
                     <div
                         id='RegexMenu_menuBar'>
                         <h1
@@ -32,6 +42,7 @@
                             Regex
                         </h1>
                         <div
+                            onClick={ this._onExpandButtonClick }
                             id='RegexMenu_expandButton'>
                         </div>
                     </div>
