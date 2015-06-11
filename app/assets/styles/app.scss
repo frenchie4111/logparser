@@ -110,13 +110,15 @@ h1 {
         #RegexMenu_content {
             @include flexbox();
             @include flex-direction( row );
-            @include align-items( center );
 
             // Default display none, .expanded adds better display
             display: none;
 
             #RegexMenu_regexInputs {
                 @include flex( 1 );
+
+                max-height: 110px;
+                overflow-y: auto;
 
                 background-color: green;
             }
