@@ -26,7 +26,8 @@
                     id={ this.props.id }>
                     <div
                         id='RegexMenu_menuBar'>
-                        <h1>
+                        <h1
+                            id='RegexMenu_header'>
                             Regex
                         </h1>
                         <div

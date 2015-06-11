@@ -85,7 +85,26 @@ h1 {
 }
 
 #Form_regex {
-    height: 40px;
-
     background-color: $blue-green;
+
+    #Form_regexMenu {
+        #RegexMenu_menuBar {
+            height: 40px;
+
+            @include flexbox();
+            @include flex-direction( row );
+            @include align-items( center );
+
+            #RegexMenu_header {
+                // Make this flex: 1 so it pushes the button to the far side
+                @include flex( 1 );
+            }
+
+            #RegexMenu_expandButton {
+                width: 30px;
+                height: 30px;
+                background-color: red;
+            }
+        }
+    }
 }
