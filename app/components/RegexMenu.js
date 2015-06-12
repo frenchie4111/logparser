@@ -54,7 +54,13 @@
                             regexes={ this.props.regexes }/>
                         <div
                             id='RegexMenu_cheatsheet'>
-                            Text
+                            <h2>
+                                Regex Cheat Sheet
+                            </h2>
+                            <ul>
+                                <li><code>\s</code> Whitespace</li>
+                                <li><code>\S</code> Not Whitespace</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
