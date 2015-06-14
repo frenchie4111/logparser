@@ -8,6 +8,7 @@
     "build": "gulp build",
     "test": "gulp test"
   },
+  "main": "app/index.html",
   "dependencies": {
     "flux": "^2.0.3",
     "object-assign": "^2.0.0",
