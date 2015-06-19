@@ -12,13 +12,14 @@
     var AppDispatcher = require( '../dispatcher/AppDispatcher' ),
         Constants = require( '../constants/FormConstants' );
 
+    var colors = [ '#AD6659', '#AD7D59', '#AD9A59', '#A7AD59', '#86AD5A', '#59AD6A', '#52ADA8', '#955AAD', '#AD5A7F' ];
+
     var Regex = function( regexText, outputText, error ) {
         this.regexText = regexText || '';
         this.regex = new RegExp( this.regexText ) || null;
         this.outputText = outputText || '';
         this.error = error || null;
-        this.color = '#000000';
-
+        this.color = colors[ Math.floor( Math.random() * colors.length ) ];
         this.setRegexText = function( newText ) {
             this.regexText = newText;
 
@@ -108,9 +109,9 @@
 
         getAfterHash: function() {
             return '[' + this
-                .getRegexes()
-                .map( ( regex ) => '[' + regex.regexText + ',' + regex.outputText + ']' )
-                .join( ',' ) + ']';
+                    .getRegexes()
+                    .map( ( regex ) => '[' + regex.regexText + ',' + regex.outputText + ']' )
+                    .join( ',' ) + ']';
         },
 
         setAfterHash: function( hash ) {
