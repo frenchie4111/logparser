@@ -33,9 +33,11 @@
                                 .map( function( line, i ) {
                                     return (
                                         <div key={ i }>
-                                            <a className='lineNum'>
-                                                { line }
-                                            </a>
+                                            <div
+                                                className='lineNum'
+                                                style={{ backgroundColor: line.color }}>
+                                                { line.text }
+                                            </div>
                                         </div>
                                     );
                                 } )

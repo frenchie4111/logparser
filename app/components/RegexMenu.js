@@ -58,8 +58,14 @@
                                 Regex Cheat Sheet
                             </h2>
                             <ul>
-                                <li><code>\s</code> Whitespace</li>
-                                <li><code>\S</code> Not Whitespace</li>
+                                <li>
+                                    <code>\s</code>
+                                    Whitespace
+                                </li>
+                                <li>
+                                    <code>\S</code>
+                                    Not Whitespace
+                                </li>
                             </ul>
                         </div>
                     </div>
