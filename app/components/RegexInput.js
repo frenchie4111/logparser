@@ -18,6 +18,7 @@
                 outputText: '',
                 onOutputTextChange: function() {
                 },
+                color: '',
                 key: '',
                 error: false
             };
@@ -45,6 +46,10 @@
                         value={ this.props.outputText }
                         className='RegexInput_outputText'
                         onChange={ ( event ) => this.props.onOutputTextChange( event.target.value ) }/>
+                    <div
+                        className='RegexInput_color'
+                        style={{ backgroundColor: this.props.color }}>
+                    </div>
                 </div>
             );
         }

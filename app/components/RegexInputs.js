@@ -30,6 +30,7 @@
                     onRegexTextChange={ function( newText ) { FormActionCreator.regexTextChanged( newText, i ); } }
                     outputText={ regex.outputText }
                     onOutputTextChange={ function( newText ) { FormActionCreator.outputTextChanged( newText, i ); } }
+                    color={ regex.color }
                     error={ regex.error }/>
             );
         },

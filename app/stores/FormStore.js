@@ -17,7 +17,7 @@
         this.regex = new RegExp( this.regexText ) || null;
         this.outputText = outputText || '';
         this.error = error || null;
-        this.color = '#FF0000';
+        this.color = '#000000';
 
         this.setRegexText = function( newText ) {
             this.regexText = newText;
