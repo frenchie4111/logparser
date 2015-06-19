@@ -39,16 +39,16 @@
         };
 
         this.output = function( regexResults ) {
-            var outputText = this.outputText;
+            var outputTextResult = this.outputText;
 
             regexResults
                 .slice( 1 )
                 .forEach( ( matched, i ) => {
                     var replace = '$' + ( i + 1 );
-                    outputText = outputText.replace( replace, matched );
+                    outputTextResult = outputTextResult.replace( replace, matched );
                 } );
 
-            return outputText;
+            return outputTextResult;
         };
     };
 
