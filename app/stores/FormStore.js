@@ -52,6 +52,13 @@
         };
     };
 
+
+    var Output = function( text, color, lineNum ) {
+        this.text = text;
+        this.color = color;
+        this.lineNum = lineNum;
+    };
+
     var MatchedLine = function( line, lineNum ) {
         this.line = line;
         this.lineNum = lineNum;
@@ -72,12 +79,6 @@
                     return new Output( match[ 0 ].output( match[ 1 ] ), match[ 0 ].color, lineNum );
                 } );
         };
-    };
-
-    var Output = function( text, color, lineNum ) {
-        this.text = text;
-        this.color = color;
-        this.lineNum = lineNum;
     };
 
     var FormStore = assign( {}, EventEmitter.prototype, {
