@@ -17,6 +17,7 @@
         this.regex = new RegExp( this.regexText ) || null;
         this.outputText = outputText || '';
         this.error = error || null;
+        this.color = '#FF0000';
 
         this.setRegexText = function( newText ) {
             this.regexText = newText;
@@ -68,9 +69,15 @@
         this.getOutput = function() {
             return this.matches
                 .map( function( match ) {
-                    return match[ 0 ].output( match[ 1 ] );
+                    return new Output( match[ 0 ].output( match[ 1 ] ), match[ 0 ].color, lineNum );
                 } );
         };
+    };
+
+    var Output = function( text, color, lineNum ) {
+        this.text = text;
+        this.color = color;
+        this.lineNum = lineNum;
     };
 
     var FormStore = assign( {}, EventEmitter.prototype, {
